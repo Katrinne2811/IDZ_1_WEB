@@ -1,4 +1,4 @@
-//пакет, у якому лежить цей клас CloudBank
+//Пакет, у якому лежить цей клас CloudBank
 package edu.nure.mjt.impl;
 import edu.nure.mjt.api.Bank;//Імпорт інтерфейса Bank із модуля jmp-bank-api
 // для його реалізації за допомогою класу CloudBank
@@ -21,27 +21,25 @@ public class CloudBank implements Bank {
     public BankCard createBankCard(User user, BankCardType type) {
 
         String cardNumber = generateCardNumber();//Текстова змінна з номером картки,
-        //який рандомно утворюється методом generateCardNumber()
+        //який рандомно генерується методом generateCardNumber()
 
-        //Використовуємо конструкцію switch, щоб перевірити, який тип картки передано (CREDIT чи DEBIT).
+        //Перевірка: який тип картки передано (CREDIT чи DEBIT).
         switch (type) {
-            //Якщо тип CREDIT (кредитна картка), то метод повертає кредит. картку з
-            //лімітом 1000 грош. од.
+            //Якщо тип CREDIT (кредитна картка), то метод повертає кредит. картку з лімітом 1000 грош. од.
             case CREDIT:
                 return new CreditBankCard(cardNumber, user, 1000.0);
 
-            // Якщо тип DEBIT (дебетова картка),             //Якщо тип CREDIT (кредитна картка), то метод повертає дебет. картку
-            // з порожнім балансом
+            // Якщо тип DEBIT (дебетова картка), то повертається дебет. картка з порожнім балансом
             case DEBIT:
                 return new DebitBankCard(cardNumber, user, 0.0);
 
-            // Якщо тип не CREDIT і не DEBIT (невідомий), то повертаємо виняток із повідомленням, що тип картки не підтримується
+            // Якщо тип не CREDIT і не DEBIT, то повертаємо виняток із повідомленням, що тип картки не підтримується
             default:
                 throw new IllegalArgumentException("Невідомий тип картки: " + type);
         }
     }
 
-    //Приватний метод generateCardNumber, який повертає номер створеної картки
+    //Метод, який генерує номер створеної картки
     private String generateCardNumber() {
         long min = 1000000000000000L; // Найменше 16-значне число
         long max = 9999999999999999L; // Найбільше 16-значне число
