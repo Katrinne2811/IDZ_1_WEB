@@ -1,9 +1,10 @@
 package edu.nure.mjt;
 
+//Клас, що описує об'єкт "банківська картка"
 public class BankCard {
-        private String number;//номер картки - приватна текстова змінна (доступна лише класу), захищена від прямих змін
-        private User user;//користувач картки - приватна змінна класу User (доступна лише класу), захищена від прямих змін
-        private BankCardType type;//приватна змінна перерахування - один з типів картки: кредитна чи дебетова
+        private String number;//номер картки 
+        private User user;//користувач картки
+        private BankCardType type;//тип картки - кредитна чи дебетова
 
     //Конструктор, що "утворює" банківську картку з номером Number користувача user
     public BankCard(String number, User user, BankCardType type) {
@@ -12,14 +13,12 @@ public class BankCard {
             this.type = type;// "this.type" — змінній типу картки в класі BankCard присвоюється type з дужок конструктора
         }
 
-        //Геттери - методи, що дозволяють дізнатися значення змінних номеру картки чи користувача картки BankCard
-       //чи тип банкывськоъ картки
+        //Методи, що дозволяють дізнатися значення змінних номеру картки, її користувача чи тип
         public String getNumber() { return number;}
         public User getUser() { return user;}
         public BankCardType getType() { return type;}
 
-        //Сеттери - методи, що дозволяють змінити значення змінних типу картки, номеру картки чи користувача картки BankCard
-        //на вказані у дужках
+        //Методи, що дозволяють змінити значення змінних типу картки, номеру картки чи користувача картки 
         public void setNumber(String number) { this.number = number; }
         public void setUser(User user) { this.user = user; }
         public void getType(BankCardType type) { this.type = type; }
