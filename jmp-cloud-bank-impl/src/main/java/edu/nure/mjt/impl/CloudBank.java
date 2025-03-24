@@ -1,27 +1,21 @@
-//Пакет, у якому лежить цей клас CloudBank
+//Пакет, у якому лежить клас CloudBank
 package edu.nure.mjt.impl;
-import edu.nure.mjt.api.Bank;//Імпорт інтерфейса Bank із модуля jmp-bank-api
-// для його реалізації за допомогою класу CloudBank
-import edu.nure.mjt.User;// Імпорт класу User із модуля jmp-dto для роботи
-// з користувачами - об'єтами класу User.
-import edu.nure.mjt.BankCard;//Імпорт класу BankCard із jmp-dto,
-//який є базовим для карток будь-якого типу
-import edu.nure.mjt.CreditBankCard;//Імпорт класу CreditBankCard із jmp-dto для реалізації кредитної картки
-import edu.nure.mjt.DebitBankCard;//Імпорт класу CreditBankCard із jmp-dto для реалізації дебетової картки
-import edu.nure.mjt.BankCardType;//Імпорт переліку enum BankCardType із jmp-dto, який визначає
-//тип створеної картки (CREDIT, DEBIT).
-import java.util.concurrent.ThreadLocalRandom;//Модуль для генерації випадкових чисел
+import edu.nure.mjt.api.Bank;
+import edu.nure.mjt.User;и
+import edu.nure.mjt.BankCard;
+import edu.nure.mjt.CreditBankCard;
+import edu.nure.mjt.DebitBankCard;
+import edu.nure.mjt.BankCardType;
+import java.util.concurrent.ThreadLocalRandom;
 
-//Оголошення публічного класу CloudBank, який буде реалізовувати інтерфейс Bank, тобто шаблон створення банківської картки
+//Оголошення публічного класу CloudBank, який буде реалізовувати інтерфейс Bank
 public class CloudBank implements Bank {
 
-    //Беремо метод createBankCard із інтерфейсу Bank, який приймає користувача (user)
-    //і тип картки (type), а повертає об’єкт BankCard - банківську картку, та його змінюємо
+    //Створення тіла методу createBankCard, що повертає нову банк. картку із інтерфейсу Bank
     @Override
     public BankCard createBankCard(User user, BankCardType type) {
 
-        String cardNumber = generateCardNumber();//Текстова змінна з номером картки,
-        //який рандомно генерується методом generateCardNumber()
+        String cardNumber = generateCardNumber();//Номер нової банк. картки
 
         //Перевірка: який тип картки передано (CREDIT чи DEBIT).
         switch (type) {
