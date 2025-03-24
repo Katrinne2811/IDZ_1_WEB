@@ -9,23 +9,22 @@ import java.time.temporal.ChronoUnit;
 import java.time.LocalDate;
 
 public interface Service {
-    //Метод для запису банківської картки bankCard до БД
+    //Метод для формування запису про створення банківської картки
     void subscribe(BankCard bankCard);
 
-    //Метод, що виводить середній вік користувачів зі списку всіх користувачів банку.
-    //Якщо список користувачів порожній, то виводиться 0
+    //Метод, що виводить середній вік користувачів зі списку всіх користувачів банку. Якщо список користувачів порожній, то виводиться 0
     default double getAverageUsersAge() {
         return getAllUsers().stream().mapToLong(user -> ChronoUnit.YEARS.between(user.getBirthday(), LocalDate.now()))
                 .average()
                 .orElse(0.0);
     }
 
-    //Метод належить інтерфейсу та перевіряє, чи є користувачеві банку 18 років.
+    //Метод, що перевіряє, чи є користувачеві банку 18 років.
     static boolean isPavableUser(User user) {
         return ChronoUnit.YEARS.between(user.getBirthday(), LocalDate.now()) >= 18;
     }
 
-    //Пошук запису про банк. картку з вказаним у дужках номером картки
+    //Метод пошуку запису про створену банк. картку за вказаним у дужках номером картки
     Optional<Subscription> getSubscriptionByBankCardNumber(String bankCardNumber);
 
     //Створення списку з усіма користувачами банку
