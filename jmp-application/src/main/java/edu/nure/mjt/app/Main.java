@@ -26,7 +26,7 @@ public class Main {
         Kate.setSurname("Perry");
         System.out.println("The new surname of " + Kate.getName() + " is " + Kate.getSurname());
 
-        //Створення подарункової банк. картки з вказаним номером та датою відкриття
+        //Створення запису про відкриття банк. картки з вказаним номером та датою відкриття
         Subscription subscript1 = new Subscription("4902847999030456", LocalDateTime.now());
         System.out.println("The subscription has number " + subscript1.getBankcard());
         System.out.println("The subscription starts from date " + subscript1.getStartDate());
