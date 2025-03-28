@@ -21,6 +21,6 @@ public class BankCard {
         //Методи, що дозволяють змінити значення змінних типу картки, номеру картки чи користувача картки 
         public void setNumber(String number) { this.number = number; }
         public void setUser(User user) { this.user = user; }
-        public void getType(BankCardType type) { this.type = type; }
+        public void setType(BankCardType type) { this.type = type; }
     }
 
