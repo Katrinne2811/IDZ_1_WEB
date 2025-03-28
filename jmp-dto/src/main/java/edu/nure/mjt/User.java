@@ -10,9 +10,7 @@ public class User {
 
     // Створення користувача - об'єкта класу 
     public User(String name, String surname, LocalDate birthday) {
-        if (name == null || surname == null || birthday == null) {
-            throw new IllegalArgumentException("Name, surname, and birthday cannot be null");
-        }
+      
         this.name = name; //Присвоєння змінній імені заданого у дужках значення
         this.surname = surname; //Присвоєння змінній прізвища заданого у дужках значення
         this.birthday = birthday; //Присвоєння змінній дати народження заданого у дужках значення
